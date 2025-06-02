@@ -3,12 +3,13 @@ name: Conditional Workflow Execution
 on:
   push:
     branches:
-      - main
-      - feature/*
+      
+      - Newfeature
+      
 
 jobs:
   production-deploy:
-    if: startsWith(github.ref, 'refs/heads/feature/') || github.ref == 'refs/heads/main'
+    if: startsWith(github.ref, 'refs/heads/feature/') || github.ref == 'refs/heads/main' || github.ref, 'refs/heads/Newfeature'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
